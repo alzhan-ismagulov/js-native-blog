@@ -1,19 +1,24 @@
 {
   "name": "js-native-blog",
   "version": "1.0.0",
-  "description": "js native blog",
-  "main": "script.js",
+  "description": "js-native-blog",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alzhan-ismagulov/js-native-blog.git"
-  },
+  "keywords": [
+    "js",
+    "javascript",
+    "blog"
+  ],
   "author": "Alzhan Ismagulov",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alzhan-ismagulov/js-native-blog/issues"
-  },
-  "homepage": "https://github.com/alzhan-ismagulov/js-native-blog#readme"
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
 }
