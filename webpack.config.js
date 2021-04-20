@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HTMLPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
@@ -7,10 +7,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: __filename + '/dist'
+    contentBase: __dirname + '/dist'
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    new HTMLPlugin({
       filename: 'index.html',
       template: './src/index.html'
     })
@@ -24,9 +24,9 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"]
+            presets: ['@babel/preset-env']
           }
         }
       }
