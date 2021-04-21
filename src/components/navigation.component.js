@@ -7,11 +7,18 @@ export class NavigationComponent extends Component{
   constructor(id) {
     //Используем конструктор родительского класса Component
     super(id)
+
+    this.tabs = []
   }
 
   init() {
     //Отслеживаем клик по вкладке
     this.$el.addEventListener('click', tabClickHandler.bind(this))
+  }
+
+  //Регистрируем вкладки в компоненте NavigationComponent
+  registerTabs(tabs) {
+    this.tabs = tabs
   }
 }
 
@@ -28,5 +35,12 @@ function tabClickHandler(event) {
     })
     //Добавляем к вкладке, на которую мы кликнули класс active делая её активной
     event.target.classList.add('active')
+
+    //Получаем содержимое вкладок по названию вкладки и тэгу в коде html
+    const activeTab = this.tabs.find(t => t.name === event.target.dataset.name)
+    //скрываем содержимое неактивной вкладки
+    this.tabs.forEach(t => t.component.hide())
+    //показываем содержимое активной вклалки
+    activeTab.component.show()
   }
 }
